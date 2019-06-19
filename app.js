@@ -23,9 +23,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 const task = require('./routes/task.route'); // Imports routes for the tasks
 app.use('/tasks', task);
 
-let port = 1234;
-
-app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
-});
+app.listen(process.env.PORT || 4000, function(){
+    console.log('Your node js server is running');
+})
 
