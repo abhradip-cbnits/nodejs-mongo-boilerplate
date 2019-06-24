@@ -20,3 +20,27 @@ exports.create = function (req, res) {
         res.send('Task Created successfully')
     })
 };
+
+exports.showAllTasks = function (req, res) {
+
+    task.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.send('Task Created successfully')
+    })
+};
+
+
+exports.processFiles = function (req, res) {
+
+    console.log(req.body);
+    console.log("===============");
+    res.send('File received at backend')
+    // task.save(function (err) {
+    //     if (err) {
+    //         return next(err);
+    //     }
+    //     res.send('Task Created successfully')
+    // })
+};
