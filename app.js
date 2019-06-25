@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // initialize our express app
 const app = express();
-
+const multer = require('multer');
+const upload = multer();
 
 
 // Set up mongoose connection
@@ -27,3 +28,8 @@ app.listen(process.env.PORT || 4000, function(){
     console.log('Your node js server is running');
 })
 
+app.post('/profile', upload.array(), function (req, res, next) {
+    // req.body contains the text fields 
+    console.log(req.body);
+    console.log("==============");
+});

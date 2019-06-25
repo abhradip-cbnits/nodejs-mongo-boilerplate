@@ -1,4 +1,6 @@
 const Task = require('../models/task.model');
+const multer = require('multer');
+const upload = multer();
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
