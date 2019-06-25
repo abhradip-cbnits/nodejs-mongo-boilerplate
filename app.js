@@ -32,4 +32,5 @@ app.post('/profile', upload.array(), function (req, res, next) {
     // req.body contains the text fields 
     console.log(req.body);
     console.log("==============");
+    res.send("file received in appjs ");
 });
