@@ -35,6 +35,7 @@ exports.showAllTasks = function (req, res) {
 exports.processFiles = function (req, res) {
 
     console.log(req.body);
+    console.log(req);
     console.log("===============");
     res.send('File received at backend')
     // task.save(function (err) {
