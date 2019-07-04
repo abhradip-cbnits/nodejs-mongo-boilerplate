@@ -12,4 +12,6 @@ router.post('/taskList', task_controller.showAllTasks);
 
 
 router.post('/processFiles', task_controller.processFiles);
+router.post('/processLogs', task_controller.processLogs);
+
 module.exports = router;

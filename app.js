@@ -31,6 +31,6 @@ app.listen(process.env.PORT || 4000, function(){
 app.post('/profile', upload.array(), function (req, res, next) {
     // req.body contains the text fields 
     console.log(req.body);
-    console.log("==============");
     res.send("file received in appjs ");
+    console.log("app endpoint is converted here.");
 });
