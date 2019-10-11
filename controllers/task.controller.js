@@ -3,6 +3,7 @@ const multer = require('multer');
 const upload = multer();
 var fs = require('fs');
 var path = require('path');
+var unirest = require('unirest');
 
 var MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://heroku_l0pcjjzd:uacgb9vc7u94lcj9tp8632bonn@ds239797.mlab.com:39797/";
@@ -12,6 +13,35 @@ const url = "mongodb://heroku_l0pcjjzd:uacgb9vc7u94lcj9tp8632bonn@ds239797.mlab.
 exports.test = function (req, res) {
     res.send('Greetings from the Test controller!');
 };
+
+// Implementation of Promise handler for EXCEL sheet rendering
+exports.processExcel = function (req, res) {
+    console.log("Started capturing data");
+    unirest.get("http://api.plos.org/search?q=title:DNA")
+    .then((response) => {
+        console.log(response.body)
+        res.send('Task ended!');
+    })
+};
+
+
+// For testing and sample QA API
+exports.getQuestion = function (req, res) {
+
+    res.setHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    //res.setHeader('Access-Control-Allow-Credentials', true);
+
+    res.json({message: 'What is your favourite food?'})
+};
+
+exports.validateQuestion = function (req, res) {
+    res.send('What is your favourite food?');
+};
+
+
 
 exports.create = function (req, res) {
     let task = new Task(

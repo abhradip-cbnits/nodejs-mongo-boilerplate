@@ -24,6 +24,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 const task = require('./routes/task.route'); // Imports routes for the tasks
 app.use('/tasks', task);
 
+const user = require('./routes/user.route'); // Imports routes for the users
+app.use('/users', user);
+
+
+
 app.listen(process.env.PORT || 4000, function(){
     console.log('Your node js server is running');
 })
@@ -34,3 +39,5 @@ app.post('/profile', upload.array(), function (req, res, next) {
     res.send("file received in appjs ");
     console.log("app endpoint is converted here.");
 });
+
+
