@@ -9,7 +9,7 @@ const user_controller = require('../controllers/user.controller');
 router.get('/test', user_controller.test);
 // creating a new user record
 router.post('/signUp', user_controller.createUser);
-router.post('/signIn', user_controller.loginUser);
+
 
 
 
